@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import {UserContext} from './contexts/UserContext'
+import {UserProvider, UserConsumer} from './contexts/UserContext'
 import Home from './scenes/home';
 import Login from './scenes/login';
 import Register from './scenes/register';
+import UserInterface from './interfaces/UserInterface';
 
 function Links() {
     return (
@@ -17,16 +17,12 @@ function Links() {
 }
 
 function App() {
-    // const [currentUser, setCurrentUser] = useState({
-    //     username: null
-    // });
-const { user } = React.useContext(UserContext);
-console.log(user);
+
  return (
+     
          <Router>
-             {
-             user ?
-             
+         <UserConsumer>
+             {(user) => user.username ?
              (
                 <div>
                     <p>user</p>
@@ -40,7 +36,8 @@ console.log(user);
                     <Route exact path="/" component={Login} />
                 </div>
              )
-}
+             }
+        </UserConsumer>
         </Router>
  )
 }

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import {UserContext} from '../contexts/UserContext'
+import UserInterface from '../interfaces/UserInterface'
 
-function Login() {
-    // const [user, setUser] = useState({
+
+// const [user, setUser] = useState({
     //     username: "", 
     //     password: ""
     // });
@@ -24,6 +24,9 @@ function Login() {
     //     console.log(res.data);
     //   })
     // }
+
+function Login() {
+    console.log("test");
 const { user, handleSubmit, mergeUserState } = React.useContext(UserContext);
 
  return (
